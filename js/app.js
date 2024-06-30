@@ -3,6 +3,7 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const taskForm = document.getElementById('taskForm');
 const taskInput = document.getElementById('taskInput');
+const prioritySelect = document.getElementById('priority'); // Add priority select element
 const taskList = document.getElementById('tasks');
 
 // Function to render tasks
@@ -14,7 +15,7 @@ function renderTasks() {
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
-            ${task}
+            ${task.task} <span class="priority">${task.priority}</span>
             <button onclick="editTask(${index})">Edit</button>
             <button onclick="deleteTask(${index})">Delete</button>
         `;
@@ -26,24 +27,24 @@ function renderTasks() {
 }
 
 // Function to add a new task
-function addTask(task) {
-    tasks.push(task);
+function addTask(task, priority) {
+    tasks.push({ task: task, priority: priority }); // Store task with priority
     renderTasks();
     taskInput.value = ''; // Clear input after adding task
 }
 
 // Function to edit a task
 function editTask(index) {
-    const newTask = prompt('Edit Task:', tasks[index]);
+    const newTask = prompt('Edit Task:', tasks[index].task);
     if (newTask !== null) {
-        tasks[index] = newTask.trim();
+        tasks[index].task = newTask.trim();
         renderTasks();
     }
 }
 
 // Function to delete a task
 function deleteTask(index) {
-    if (confirm(`Are you sure you want to delete "${tasks[index]}"?`)) {
+    if (confirm(`Are you sure you want to delete "${tasks[index].task}"?`)) {
         tasks.splice(index, 1);
         renderTasks();
     }
@@ -53,8 +54,9 @@ function deleteTask(index) {
 taskForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const task = taskInput.value.trim();
+    const priority = prioritySelect.value; // Get selected priority
     if (task !== '') {
-        addTask(task);
+        addTask(task, priority);
     }
 });
 

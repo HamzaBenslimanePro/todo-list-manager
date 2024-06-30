@@ -283,3 +283,9 @@ footer {
 #taskList li button:hover {
     background-color: #0056b3; /* Darker shade on hover */
 }
+
+/* Additional CSS styles for priority display */
+.priority {
+    margin-left: 10px;
+    font-weight: bold;
+}
