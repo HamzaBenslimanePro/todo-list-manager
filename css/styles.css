@@ -51,7 +51,7 @@ nav ul li a:hover {
     position: relative;
     width: 100%;
     overflow: hidden;
-    min-height: 600px; /* Maintain the increased height for cover */
+    min-height: 500px; /* Maintain the increased height for cover */
     margin-top: 20px; /* Ensure it doesn't merge with the header */
 }
 
@@ -64,7 +64,7 @@ nav ul li a:hover {
 
 .cover-text {
     position: absolute;
-    top: 70%; /* Lower the text to 70% from the top */
+    top: 50%; /* Lower the text from the top */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
