@@ -17,12 +17,12 @@
             <div class="option">
                 <h3>Sign In</h3>
                 <p>Sign in to your account.</p>
-                <a href="signin.html" class="cta-button">Sign In</a>
+                <button class="cta-button" onclick="openSignInWindow()">Sign In</button>
             </div>
             <div class="option">
                 <h3>Log In</h3>
                 <p>Log in to your account.</p>
-                <a href="login.html" class="cta-button">Log In</a>
+                <button class="cta-button" onclick="openLogInWindow()">Log In</button>
             </div>
         </section>
     </main>
@@ -30,5 +30,20 @@
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        function openSignInWindow() {
+            // Specify the URL and dimensions of the pop-up window
+            const signInURL = 'signin_popup.html'; // Replace with your sign-in form URL
+            const windowFeatures = 'width=600,height=400';
+
+            // Open the pop-up window
+            window.open(signInURL, 'SignInWindow', windowFeatures);
+        }
+
+        function openLogInWindow() {
+            window.open('login_popup.html', 'LogInWindow', 'width=600,height=400');
+        }
+    </script>
 </body>
 </html>
