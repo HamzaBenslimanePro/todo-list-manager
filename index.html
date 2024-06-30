@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List Manager</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css"> <!-- CSS for modal -->
 </head>
 <body>
     <header>
@@ -13,17 +14,32 @@
             <ul>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="app.html">Get Started</a></li>
+                <li><button class="cta-button" onclick="openSignInModal()">Get Started</button></li> <!-- Added class -->
             </ul>
         </nav>
     </header>
+
+    <!-- Sign-in Modal -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignInModal()">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
 
     <section class="cover">
         <img src="img/cover.jpg" alt="Cover Image">
         <div class="cover-text">
             <h1>Welcome to To-Do List Manager</h1>
             <p>Stay organized and manage your tasks effectively.</p>
-            <a href="app.html" class="cta-button">Start Now</a>
+            <a href="app.html" class="cta-button">Start Now</a> <!-- Example of a styled button -->
         </div>
     </section>
 
@@ -65,5 +81,7 @@
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
+
+    <script src="js/index.js"></script> <!-- JavaScript for modal functionality -->
 </body>
 </html>

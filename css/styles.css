@@ -212,3 +212,28 @@ footer {
         flex: 1 1 calc(100% - 20px); /* Full width for each feature card on smaller screens */
     }
 }
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #28A745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #f4f4f9;
+}
