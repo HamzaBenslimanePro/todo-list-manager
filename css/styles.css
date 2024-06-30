@@ -17,9 +17,10 @@ header {
     background-color: #007BFF;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0; /* Increased padding for larger header */
     position: relative;
     z-index: 1; /* Ensure header stays on top */
+    height: 100px; /* Increased height for the header */
 }
 
 nav ul {
@@ -50,7 +51,8 @@ nav ul li a:hover {
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin-top: 20px; /* Increase margin to push down cover section */
+    min-height: 600px; /* Maintain the increased height for cover */
+    margin-top: 20px; /* Ensure it doesn't merge with the header */
 }
 
 .cover img {
@@ -62,29 +64,29 @@ nav ul li a:hover {
 
 .cover-text {
     position: absolute;
-    top: 60%; /* Lower the text to 60% from the top */
+    top: 70%; /* Lower the text to 70% from the top */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    padding: 20px;
+    padding: 30px; /* Increase padding for more space around text */
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
 .cover-text h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
+    font-size: 3.5em; /* Increase font size */
+    margin-bottom: 20px;
 }
 
 .cover-text p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.5em; /* Increase font size */
+    margin-bottom: 30px; /* More space below the paragraph */
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 15px 30px; /* Increase padding for a larger button */
     background-color: #28A745;
     color: white;
     text-decoration: none;
@@ -107,7 +109,7 @@ main {
 
 #features {
     text-align: center;
-    margin: 40px 0;
+    margin: 40px 0; /* Adjust margin to create space */
 }
 
 #features h2 {
@@ -117,9 +119,9 @@ main {
 
 .feature-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around; /* Adjusted to distribute evenly */
     gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .feature {
@@ -127,8 +129,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 30%;
-    flex: 1 1 30%;
+    flex: 1 1 calc(30% - 20px); /* Adjust width of each feature card */
     text-align: left;
 }
 
@@ -200,18 +201,14 @@ footer {
 
 @media (max-width: 768px) {
     .cover-text h1 {
-        font-size: 2em;
+        font-size: 2.5em; /* Adjust font size for smaller screens */
     }
 
     .cover-text p {
-        font-size: 1em;
-    }
-
-    .feature-container {
-        flex-direction: column;
+        font-size: 1.2em; /* Adjust font size for smaller screens */
     }
 
     .feature {
-        max-width: 100%;
+        flex: 1 1 calc(100% - 20px); /* Full width for each feature card on smaller screens */
     }
 }
