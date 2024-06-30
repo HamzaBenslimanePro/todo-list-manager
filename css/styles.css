@@ -212,28 +212,25 @@ footer {
         flex: 1 1 calc(100% - 20px); /* Full width for each feature card on smaller screens */
     }
 }
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #28A745;
+.get-started-button {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #0056b3;
+}
+
+.get-started-button a {
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #218838;
-}
-
-nav ul li a {
-    color: #333;
-    text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Adjust padding to match other links */
+    border-radius: 5px; /* Optional: Add some rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-nav ul li a:hover {
-    background-color: #f4f4f9;
+.get-started-button a:hover {
+    background-color: #004999; /* Darker shade on hover */
+    text-decoration: underline;
 }
