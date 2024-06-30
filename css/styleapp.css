@@ -1,0 +1,285 @@
+/* styleapp.css */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 30px 0; /* Increased padding for larger header */
+    position: relative;
+    z-index: 1; /* Ensure header stays on top */
+    height: 100px; /* Increased height for the header */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0; /* Remove margin for better alignment */
+    background-color: #0056b3;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Cover Section */
+.cover {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 500px; /* Maintain the increased height for cover */
+    margin-top: 20px; /* Ensure it doesn't merge with the header */
+}
+
+.cover img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.cover-text {
+    position: absolute;
+    top: 50%; /* Lower the text from the top */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 30px; /* Increase padding for more space around text */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.cover-text h1 {
+    font-size: 3.5em; /* Increase font size */
+    margin-bottom: 20px;
+}
+
+.cover-text p {
+    font-size: 1.5em; /* Increase font size */
+    margin-bottom: 30px; /* More space below the paragraph */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px; /* Increase padding for a larger button */
+    background-color: #28A745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Ensure main content stays on top */
+}
+
+#features {
+    text-align: center;
+    margin: 40px 0; /* Adjust margin to create space */
+}
+
+#features h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-around; /* Adjusted to distribute evenly */
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.feature {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(30% - 20px); /* Adjust width of each feature card */
+    text-align: left;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+}
+
+/* About Section */
+#about {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#about p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links li {
+    display: inline;
+}
+
+.social-links a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    position: relative;
+    z-index: 1; /* Ensure footer stays on top */
+}
+
+@media (max-width: 768px) {
+    .cover-text h1 {
+        font-size: 2.5em; /* Adjust font size for smaller screens */
+    }
+
+    .cover-text p {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .feature {
+        flex: 1 1 calc(100% - 20px); /* Full width for each feature card on smaller screens */
+    }
+}
+
+/* Styles for task form */
+#taskForm {
+    margin-bottom: 20px;
+}
+
+#taskForm label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#taskForm input[type="text"],
+#taskForm select {
+    width: calc(100% - 24px); /* Adjust width to accommodate button padding */
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#taskForm button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#taskForm button:hover {
+    background-color: #45a049;
+}
+
+/* Styles for task list */
+#taskList {
+    margin-top: 20px;
+}
+
+#taskList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#taskList li .priority {
+    font-weight: bold;
+}
+
+/* Styles for Edit and Delete buttons */
+#taskList li button {
+    padding: 10px 20px; /* Match padding with Add Task button */
+    background-color: #007BFF; /* Adjust color for distinction */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Provide spacing between buttons */
+}
+
+#taskList li button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
