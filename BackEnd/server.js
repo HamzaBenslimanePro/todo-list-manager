@@ -17,8 +17,10 @@ app.use('/api', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+console.log('Connecting to MongoDB with URI:', process.env.MONGO_URI);
+
 // Connect to MongoDB Atlas
-mongoose.connect('mongodb+srv://user1:o8kaL3fUeu4BTN9m@cluster0.mongodb.net/mydb-test?retryWrites=true&w=majority', { 
+mongoose.connect(process.env.MONGO_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
     })
