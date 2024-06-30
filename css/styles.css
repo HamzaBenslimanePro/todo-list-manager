@@ -14,11 +14,12 @@ body {
 
 /* Header and Navigation */
 header {
-    position: relative;
     background-color: #007BFF;
     color: white;
     text-align: center;
     padding: 20px 0;
+    position: relative;
+    z-index: 1; /* Ensure header stays on top */
 }
 
 nav ul {
@@ -26,6 +27,7 @@ nav ul {
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    margin: 0; /* Remove margin for better alignment */
     background-color: #0056b3;
 }
 
@@ -48,6 +50,7 @@ nav ul li a:hover {
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin-top: 20px; /* Increase margin to push down cover section */
 }
 
 .cover img {
@@ -59,7 +62,7 @@ nav ul li a:hover {
 
 .cover-text {
     position: absolute;
-    top: 50%;
+    top: 60%; /* Lower the text to 60% from the top */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -98,6 +101,8 @@ main {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Ensure main content stays on top */
 }
 
 #features {
@@ -190,6 +195,7 @@ footer {
     background-color: #007BFF;
     color: white;
     position: relative;
+    z-index: 1; /* Ensure footer stays on top */
 }
 
 @media (max-width: 768px) {
