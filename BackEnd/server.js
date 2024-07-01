@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
+const todoRoutes = require('./routes/todoRoutes');
 const path = require('path'); // Add this for serving static files
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json()); // For parsing application/json
 
 // Routes
 app.use('/api', authRoutes);
+app.use('/api', todoRoutes);
 
 // Serve static files from the frontend
 app.use(express.static(path.join(__dirname, '../frontend'))); // Adjust path as needed

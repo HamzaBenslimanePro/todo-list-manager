@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a, #userGreeting {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+.todo-item {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+.completed {
+    text-decoration: line-through;
+}
