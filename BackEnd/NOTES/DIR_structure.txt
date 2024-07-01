@@ -1,0 +1,57 @@
+todo-list/
+│
+├── backend/
+│   ├── index.js                // Entry point for backend server
+│   ├── models/                 // Directory for Mongoose models
+│   │   └── User.js             // Mongoose user model schema
+│   ├── routes/                 // Directory for Express routes
+│   │   └── auth.js             // Routes for authentication (signup, login)
+│   └── .env                    // Environment variables (not included in repo)
+│
+├── frontend/
+│   ├── index.html              // Main landing page
+│   ├── connect.html            // Page for sign-in and sign-up forms
+│   ├── css/
+│   │   ├── styles.css          // Global styles for the frontend
+│   │   ├── connect-styles.css  // Styles specific to connect.html
+│   │   └── ...                 // Other CSS files as needed
+│   ├── js/
+│   │   ├── app.js              // JavaScript for main application logic
+│   │   ├── connect.js          // JavaScript for handling sign-in and sign-up
+│   │   └── ...                 // Other JavaScript files as needed
+│   ├── img/                    // Directory for images used in frontend
+│   └── ...                     // Other frontend resources
+│
+└── package.json                // Node.js project configuration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+V2:
+
+/your-project-root
+│
+├── /backend
+│   ├── /config
+│   │   └── db.js          # MongoDB connection configuration
+│   ├── /controllers
+│   │   ├── authController.js # Authentication logic (signup, login)
+│   ├── /middleware
+│   │   └── auth.js        # Middleware for JWT verification
+│   ├── /models
+│   │   └── User.js        # User model schema
+│   ├── /routes
+│   │   └── authRoutes.js  # Routes for signup and login
+│   ├── .env               # Environment variables (JWT secret, DB URI)
+│   ├── server.js          # Main server file
+│
+├── /frontend
+│   ├── /css
+│   │   └── connect-styles.css # Styles for connect page
+│   ├── /js
+│   │   └── connect.js        # Client-side logic for connect page
+│   ├── app.html              # Main application page
+│   ├── connect.html          # Connect page (login/signup)
+│   ├── index.html            # Landing page
+│
+└── package.json
+
