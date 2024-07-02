@@ -1,6 +1,6 @@
 const express = require('express');
 const { checkAuth } = require('../middleware/authMiddleware');
-const Todo = require('../models/Todo');
+const Todo = require('../models/Task');
 
 const router = express.Router();
 

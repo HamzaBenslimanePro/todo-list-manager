@@ -1,3 +1,5 @@
+<!-- dashboard.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +21,15 @@
     </header>
     <main>
         <h1>Welcome to your Dashboard</h1>
-        <div id="todoApp">
-            <!-- To-Do List Application UI -->
-        </div>
+
+        <!-- Form to add a new task -->
+        <form id="taskForm">
+            <input type="text" id="taskTitle" placeholder="Enter new task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- To-Do List Application UI will be populated by JavaScript -->
+        <div id="todoApp"></div>
     </main>
 </body>
 </html>
