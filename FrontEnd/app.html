@@ -9,7 +9,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/FrontEnd/index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
         </ul>
     </nav>
 
@@ -18,9 +18,9 @@
     </header>
 
     <main>
-        <section id="taskForm">
+        <section id="taskFormSection">
             <h2>Add Task</h2>
-            <form id="taskForm">
+            <form id="taskFormElement">
                 <label for="taskInput">Task:</label>
                 <input type="text" id="taskInput" required>
                 <label for="priority">Priority:</label>
@@ -29,8 +29,48 @@
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
                 </select>
+                <label for="scheduleDate">Schedule Date:</label>
+                <input type="date" id="scheduleDate">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="academic">Academic</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="art">Art</option>
+                </select>
                 <button type="submit">Add Task</button>
             </form>
+        </section>
+
+        <section id="filterSection">
+            <label for="filterPriority">Filter by Priority:</label>
+            <select id="filterPriority">
+                <option value="">All</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="filterCategory">Filter by Category:</label>
+            <select id="filterCategory">
+                <option value="">All</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="academic">Academic</option>
+                <option value="fitness">Fitness</option>
+                <option value="art">Art</option>
+            </select>
+
+            <label for="filterDate">Filter by Date:</label>
+            <input type="date" id="filterDate">
+
+            <label for="orderTasks">Order by:</label>
+            <select id="orderTasks">
+                <option value="date">Date</option>
+                <option value="priority">Priority</option>
+                <option value="alphabetical">Alphabetical</option>
+            </select>
         </section>
 
         <section id="taskList">
