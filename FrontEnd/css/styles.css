@@ -7,37 +7,49 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #1b191e;
     color: #333;
     line-height: 1.6;
 }
-
+#h2_features{
+    color: white;
+}
 /* Header and Navigation */
 header {
-    background-color: #007BFF;
-    color: white;
+    color: #1b191e;
     text-align: center;
-    padding: 30px 0; /* Increased padding for larger header */
+
     position: relative;
     z-index: 1; /* Ensure header stays on top */
     height: 100px; /* Increased height for the header */
+    margin: 20px 20px 20px;
+    border-radius: 25px;
 }
-
+#head {
+    background-color: #e09215d8;
+}
+#logo{
+    float: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    width: 100px;
+}
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 10px 0;
-    margin: 0; /* Remove margin for better alignment */
-    background-color: #0056b3;
-}
+    float: right;
+    margin-right: 40px;
+    padding-top: 35px;
+    }
 
 nav ul li {
     margin: 0 15px;
 }
 
+
 nav ul li a {
-    color: white;
+    color: #1b191e;
     text-decoration: none;
     font-weight: bold;
 }
@@ -48,54 +60,40 @@ nav ul li a:hover {
 
 /* Cover Section */
 .cover {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    min-height: 500px; /* Maintain the increased height for cover */
-    margin-top: 20px; /* Ensure it doesn't merge with the header */
+    margin-left: 22%;
+    margin-top: 50px;
+    background-color: #e09215d8;
+    width: 700px;
+    border-radius: 25px;
 }
 
-.cover img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
+
 
 .cover-text {
-    position: absolute;
-    top: 50%; /* Lower the text from the top */
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
-    padding: 30px; /* Increase padding for more space around text */
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    padding-bottom: 10px;
 }
-
-.cover-text h1 {
-    font-size: 3.5em; /* Increase font size */
-    margin-bottom: 20px;
+.cover-text h1{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 40px;
 }
-
-.cover-text p {
-    font-size: 1.5em; /* Increase font size */
-    margin-bottom: 30px; /* More space below the paragraph */
+.cover-text p{
+    padding-bottom: 15px;
+    font-size: 20px;
 }
-
 .cta-button {
     display: inline-block;
     padding: 15px 30px; /* Increase padding for a larger button */
-    background-color: #28A745;
+    background-color: #333;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 25px;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #218838;
+    background-color: #ebad4bd8;
 }
 
 /* Main Content */
@@ -110,6 +108,7 @@ main {
 #features {
     text-align: center;
     margin: 40px 0; /* Adjust margin to create space */
+    color: #333;
 }
 
 #features h2 {
@@ -125,7 +124,7 @@ main {
 }
 
 .feature {
-    background-color: white;
+    background-color: #e09215d8;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -152,7 +151,7 @@ main {
 /* About Section */
 #about {
     padding: 40px 20px;
-    background-color: #f9f9f9;
+    color: white;
     text-align: center;
 }
 
@@ -179,7 +178,7 @@ main {
 }
 
 .social-links a {
-    color: #007BFF;
+    color: #e09215d8;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -193,7 +192,7 @@ main {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #007BFF;
+    background-color: #e09215d8;
     color: white;
     position: relative;
     z-index: 1; /* Ensure footer stays on top */
