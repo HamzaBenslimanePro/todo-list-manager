@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In or Log In</title>
+    <link rel="stylesheet" href="css/styleSignIn.css">
+</head>
+<body>
+    <header>
+        <h1>Sign In or Log In</h1>
+    </header>
+
+    <main>
+        <section class="signin-options">
+            <h2>Choose an Option:</h2>
+            <div class="option">
+                <h3>Sign In</h3>
+                <p>Sign in to your account.</p>
+                <button class="cta-button" onclick="openSignInWindow()">Sign In</button>
+            </div>
+            <div class="option">
+                <h3>Log In</h3>
+                <p>Log in to your account.</p>
+                <button class="cta-button" onclick="openLogInWindow()">Log In</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openSignInWindow() {
+            // Specify the URL and dimensions of the pop-up window
+            const signInURL = 'signin_popup.html'; // Replace with your sign-in form URL
+            const windowFeatures = 'width=600,height=400';
+
+            // Open the pop-up window
+            window.open(signInURL, 'SignInWindow', windowFeatures);
+        }
+
+        function openLogInWindow() {
+            window.open('login_popup.html', 'LogInWindow', 'width=600,height=400');
+        }
+    </script>
+</body>
+</html>
