@@ -16,7 +16,8 @@ body {
 header {
     background-color: #e09215d8;
     color: #333;
-
+    margin: 20px 20px 20px ;
+    border-radius: 25px;
     height: 100px;
 }
 #name{
@@ -43,14 +44,31 @@ main {
 /* Task Form Section */
 #taskFormSection {
     margin-bottom: 30px;
+    background-color: #e09215d8;
+    border-radius: 15px;
+    width: 60%;
+    padding: 10px 10px 15px 10px;
+    margin-left: 20%;
+    margin-bottom: 60px;
+    color: #0b0a0a;
 }
 
 #taskFormSection h2 {
     margin-bottom: 20px;
     font-size: 40px;
     text-align: center;
+    color: #333;
+}
+#taskFormSection input {
+    background-color:#ebad4bd8 ;
 }
 
+#taskFormSection select {
+    background-color: #ebad4bd8;
+}
+#taskFormSection option{
+    background-color: #f9cb82d8;
+}
 #taskFormElement label {
     display: block;
     margin-bottom: 8px;
@@ -69,17 +87,20 @@ main {
 
 #taskFormElement button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #e09215d8;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    width: 100%; /* Full-width button */
+    width: 30%; /* Full-width button */
     margin-top: 10px;
+    margin-left: 35%;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
 }
 
 #taskFormElement button:hover {
-    background-color: #45a049;
+    background-color: #ebad4bd8;
 }
 
 /* Filter Section */
@@ -177,3 +198,4 @@ main {
 .priority {
     font-weight: bold;
 }
+

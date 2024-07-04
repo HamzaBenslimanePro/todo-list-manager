@@ -8,14 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>Connect to To-Do List Manager</h1>
+        <a href="index.html">
+            <img id="logo" src="img/taskmaster_logo_black.png" > 
+        </a>
+        <h1 id="title">Connect to TaskMaster</h1>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-        </ul>
-    </nav>
 
     <main>
         <section id="login">
@@ -24,26 +21,24 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Log In</button>
+                <input type="password" id="password" name="password" required><br>
+                <button type="submit">Log In</button> 
             </form>
         </section>
 
         <section id="signupForm">
             <h2>Sign Up</h2>
-            <form id="signupForm">
+            <form id="signupform">
                 <label for="signupEmail">Email:</label>
                 <input type="email" id="signupEmail" name="signupEmail" required>
                 <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" name="signupPassword" required>
+                <input type="password" id="signupPassword" name="signupPassword" required> <br>
                 <button type="submit">Sign Up</button>
             </form>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
+
 
     <script src="js/connect.js" defer></script> <!-- Script for handling form submissions -->
 </body>
