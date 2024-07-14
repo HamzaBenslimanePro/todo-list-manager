@@ -20,16 +20,31 @@ header {
     border-radius: 25px;
     height: 100px;
 }
-#name{
+#name {
     padding-top: 20px;
     text-align: justify;
     padding-left: 43%;
 }
-#logo{
+#logo {
     float: left;
     padding-left: 10px;
     padding-bottom: 10px;
     width: 100px;
+}
+
+#dashboardBtn {
+    float: right;
+    margin: 25px 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+#dashboardBtn:hover {
+    background-color: #ebad4bd8;
 }
 
 /* Main Content */
@@ -39,6 +54,11 @@ main {
     margin: 0 auto;
     position: relative;
     z-index: 1;
+}
+
+main canvas #myChart{
+    width: 40px; /* Set your desired width */
+    height: 30px; /* Set your desired height */
 }
 
 /* Task Form Section */
@@ -66,7 +86,7 @@ main {
 #taskFormSection select {
     background-color: #ebad4bd8;
 }
-#taskFormSection option{
+#taskFormSection option {
     background-color: #f9cb82d8;
 }
 #taskFormElement label {
@@ -145,7 +165,7 @@ main {
     margin-top: 20px;
     color: #333;
 }
-#taskList h2{
+#taskList h2 {
     color: white;
 }
 #taskList ul {
@@ -179,6 +199,37 @@ main {
     color: #333; /* Gray color for category text */
 }
 
+#taskList li .status {
+    margin-left: 10px;
+    font-style: italic;
+    color: black; /* Default color for status */
+}
+
+.status {
+    color: black;
+}
+
+.status.Late {
+    color: red;
+}
+
+.status.In\ Process {
+    color: orange;
+}
+
+.status.Done {
+    color: green;
+}
+
+.status.Done\ Late {
+    color: purple;
+}
+#myChart {
+    width: 40px; /* Set your desired width */
+    height: 30px; /* Set your desired height */
+}
+
+
 /* Styles for Edit and Delete buttons */
 #taskList li button {
     padding: 10px 15px;
@@ -199,3 +250,19 @@ main {
     font-weight: bold;
 }
 
+#chartsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.chart-container {
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+}
+@media (max-width: 768px) {
+    .chart-container {
+        width: 100%;
+        height: auto;
+    }
+}

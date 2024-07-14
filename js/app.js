@@ -5,15 +5,15 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const taskForm = document.getElementById('taskFormElement');
 const taskInput = document.getElementById('taskInput');
 const prioritySelect = document.getElementById('priority');
-const scheduleDateInput = document.getElementById('scheduleDate'); // New date input
-const categorySelect = document.getElementById('category'); // New category input
+const scheduleDateInput = document.getElementById('scheduleDate');
+const categorySelect = document.getElementById('category');
 const taskList = document.getElementById('tasks');
 
 // Filter elements
 const filterPriority = document.getElementById('filterPriority');
 const filterCategory = document.getElementById('filterCategory');
 const filterDate = document.getElementById('filterDate');
-const orderTasksSelect = document.getElementById('orderTasks'); // Order tasks select
+const orderTasksSelect = document.getElementById('orderTasks');
 
 // Function to render tasks
 function renderTasks(filteredTasks = tasks) {
@@ -31,6 +31,7 @@ function renderTasks(filteredTasks = tasks) {
             <span class="priority">(${task.priority})</span>
             <span class="date">${task.date}</span>
             <span class="category">${task.category}</span>
+            <span class="status">${getStatus(task)}</span>
             <button onclick="editTask(${index})">Edit</button>
             <button onclick="deleteTask(${index})">Delete</button>
         `;
@@ -42,16 +43,39 @@ function renderTasks(filteredTasks = tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+// Function to get status of task
+function getStatus(task) {
+    const currentDate = new Date().toISOString().split('T')[0];
+    
+    if (!task.done && task.date > currentDate) {
+        return 'In Process';
+    } else if (task.done && task.date >= currentDate) {
+        return 'Done';
+    } else if (task.done && task.date < currentDate) {
+        return 'Done Late';
+    } else if (!task.done && task.date < currentDate) {
+        return 'Late';
+    }
+    return '';
+}
+
 // Function to add a new task
 function addTask(task, priority, date, category) {
-    tasks.push({ task, priority, date, category, done: false }); // Include done property
-    renderTasks(orderTasks(tasks)); // Render ordered tasks
+    tasks.push({ 
+        task, 
+        priority, 
+        date, 
+        category, 
+        done: false,
+        dateAdded: new Date().toISOString().split('T')[0], // Add current date as dateAdded
+        dateCompleted: null // Initialize dateCompleted as null
+    });
+    renderTasks(orderTasks(tasks));
 
-    taskInput.value = ''; // Clear input after adding task
-    scheduleDateInput.value = ''; // Clear date input
-    categorySelect.value = ''; // Clear category select
+    taskInput.value = '';
+    scheduleDateInput.value = '';
+    categorySelect.value = '';
 
-    // Smooth scroll to the newly added task
     const lastTask = taskList.lastElementChild;
     if (lastTask) {
         lastTask.scrollIntoView({ behavior: 'smooth' });
@@ -60,9 +84,20 @@ function addTask(task, priority, date, category) {
 
 // Function to edit a task
 function editTask(index) {
-    const newTask = prompt('Edit Task:', tasks[index].task);
-    if (newTask !== null) {
-        tasks[index].task = newTask.trim();
+    const task = tasks[index];
+    const newTask = prompt('Edit Task:', task.task);
+    const newPriority = prompt('Edit Priority (low, medium, high):', task.priority);
+    const newDate = prompt('Edit Date (YYYY-MM-DD):', task.date);
+    const newCategory = prompt('Edit Category (work, personal, academic, fitness, art):', task.category);
+
+    if (newTask !== null && newPriority !== null && newDate !== null && newCategory !== null) {
+        tasks[index] = {
+            ...tasks[index],
+            task: newTask.trim(),
+            priority: newPriority.trim(),
+            date: newDate.trim(),
+            category: newCategory.trim(),
+        };
         renderTasks(orderTasks(tasks));
     }
 }
@@ -78,6 +113,7 @@ function deleteTask(index) {
 // Function to toggle task done state
 function toggleTaskDone(index) {
     tasks[index].done = !tasks[index].done;
+    tasks[index].dateCompleted = tasks[index].done ? new Date().toISOString().split('T')[0] : null; // Set dateCompleted when task is done
     renderTasks(orderTasks(tasks));
 }
 
