@@ -1,5 +1,17 @@
 // Get tasks from localStorage
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = [];
+let taskStatusChart;
+let TaskFrequencyChart;
+let successBarChart;
+
+async function fetchTasks() {
+    const response = await fetch('/api/tasks');
+    tasks = await response.json();
+    renderStatistics();
+    renderTaskStatusChart();
+    renderTaskFrequencyChart();
+    renderSuccessBarChart();
+}
 
 // Function to calculate task statistics
 function calculateStatistics() {
@@ -85,7 +97,12 @@ function renderTaskStatusChart() {
     let stats = calculateStatistics();
     var ctx = document.getElementById("taskStatusChart").getContext('2d');
 
-    new Chart(ctx, {
+    // Destroy existing chart instance if it exists
+    if (taskStatusChart) {
+        taskStatusChart.destroy();
+    }
+
+    taskStatusChart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: ['Done', 'Done Late', 'In Process', 'Late'],
@@ -129,7 +146,13 @@ function renderTaskFrequencyChart() {
     console.log('Completed Counts:', completedCounts);
 
     var ctx = document.getElementById("taskFrequencyChart").getContext('2d');
-    new Chart(ctx, {
+    
+    // Destroy existing chart instance if it exists
+    if (taskFrequencyChart && typeof taskFrequencyChart.destroy === 'function') {
+        taskFrequencyChart.destroy();
+    }
+
+    taskFrequencyChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dates,
@@ -165,7 +188,13 @@ function renderSuccessBarChart() {
     console.log(`Success Rate: ${successRate}%`);
 
     var ctx = document.getElementById("successBarChart").getContext('2d');
-    new Chart(ctx, {
+
+    // Destroy existing chart instance if it exists
+    if (successBarChart && typeof successBarChart.destroy === 'function') {
+        successBarChart.destroy();
+    }
+
+    successBarChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Success Rate'],
@@ -211,7 +240,7 @@ function renderSuccessBarChart() {
         }) 
       ); 
 }*/
-
+/*
 function filterTasksByDateRange(startDate, endDate) {
     return tasks.filter(task => {
         if (task.dateAdded) {
@@ -221,15 +250,12 @@ function filterTasksByDateRange(startDate, endDate) {
         // Adjust logic if you need to filter based on task completion date as well
         return false;
     });
-}
-
-
+}*/
 
 document.addEventListener("DOMContentLoaded", function() {
+    fetchTasks();
     renderStatistics();
     renderTaskStatusChart();
     renderTaskFrequencyChart();
     renderSuccessBarChart();
-    let stats = calculateStatistics();
-    let successRate = (stats.completedTasks / stats.totalTasks) * 100;
 });

@@ -1,5 +1,5 @@
 // Get tasks from localStorage or initialize an empty array
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = [];
 
 // Element references
 const taskForm = document.getElementById('taskFormElement');
@@ -15,39 +15,48 @@ const filterCategory = document.getElementById('filterCategory');
 const filterDate = document.getElementById('filterDate');
 const orderTasksSelect = document.getElementById('orderTasks');
 
+// Fetch tasks from backend
+async function fetchTasks() {
+    const response = await fetch('http://localhost:5000/api/tasks');
+    tasks = await response.json();
+    console.log('Fetched tasks:', tasks); // Debugging
+    renderTasks();
+}
+
 // Function to render tasks
 function renderTasks(filteredTasks = tasks) {
     // Clear existing tasks
     taskList.innerHTML = '';
 
     // Render each task
-    filteredTasks.forEach((task, index) => {
+    filteredTasks.forEach((task) => {
+        const status = getStatus(task);
+        console.log(`Task: ${task.task}, Status: ${status}, ID: ${task._id}`); // Debugging
         const li = document.createElement('li');
         li.className = `task ${task.priority.toLowerCase()}`; // Apply priority class
 
         li.innerHTML = `
-            <input type="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTaskDone(${index})">
+            <input type="checkbox" ${task.done ? 'checked' : ''} onchange="toggleTaskDone('${task._id}')">
             <span class="task-text ${task.done ? 'done' : ''}">${task.task}</span>
             <span class="priority">(${task.priority})</span>
             <span class="date">${task.date}</span>
             <span class="category">${task.category}</span>
             <span class="status">${getStatus(task)}</span>
-            <button onclick="editTask(${index})">Edit</button>
-            <button onclick="deleteTask(${index})">Delete</button>
+            <button onclick="editTask('${task._id}')">Edit</button>
+            <button onclick="deleteTask('${task._id}')">Delete</button>
         `;
 
         taskList.appendChild(li);
     });
-
     // Save tasks to localStorage
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    //localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 // Function to get status of task
 function getStatus(task) {
     const currentDate = new Date().toISOString().split('T')[0];
     
-    if (!task.done && task.date > currentDate) {
+    if (!task.done && task.date >= currentDate) {
         return 'In Process';
     } else if (task.done && task.date >= currentDate) {
         return 'Done';
@@ -60,21 +69,23 @@ function getStatus(task) {
 }
 
 // Function to add a new task
-function addTask(task, priority, date, category) {
-    tasks.push({ 
-        task, 
-        priority, 
-        date, 
-        category, 
-        done: false,
-        dateAdded: new Date().toISOString().split('T')[0], // Add current date as dateAdded
-        dateCompleted: null // Initialize dateCompleted as null
+async function addTask(task, priority, date, category) {
+    const response = await fetch('/api/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            task,
+            priority,
+            date,
+            category,
+            done: false,
+            dateAdded: new Date().toISOString().split('T')[0],
+            dateCompleted: null
+        })
     });
-    renderTasks(orderTasks(tasks));
-
-    taskInput.value = '';
-    scheduleDateInput.value = '';
-    categorySelect.value = '';
+    const newTask = await response.json();
+    tasks.push(newTask);
+    renderTasks();
 
     const lastTask = taskList.lastElementChild;
     if (lastTask) {
@@ -83,38 +94,63 @@ function addTask(task, priority, date, category) {
 }
 
 // Function to edit a task
-function editTask(index) {
-    const task = tasks[index];
+async function editTask(id) {
+    const task = tasks.find(task => task._id === id);
+    if (!task) {
+        console.error(`Task with ID ${id} not found`); // Debugging
+        return;
+    }
+
     const newTask = prompt('Edit Task:', task.task);
     const newPriority = prompt('Edit Priority (low, medium, high):', task.priority);
     const newDate = prompt('Edit Date (YYYY-MM-DD):', task.date);
     const newCategory = prompt('Edit Category (work, personal, academic, fitness, art):', task.category);
 
     if (newTask !== null && newPriority !== null && newDate !== null && newCategory !== null) {
-        tasks[index] = {
-            ...tasks[index],
-            task: newTask.trim(),
-            priority: newPriority.trim(),
-            date: newDate.trim(),
-            category: newCategory.trim(),
-        };
-        renderTasks(orderTasks(tasks));
+        const response = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                task: newTask.trim(),
+                priority: newPriority.trim(),
+                date: newDate.trim(),
+                category: newCategory.trim(),
+                done: task.done,
+                dateAdded: task.dateAdded,
+                dateCompleted: task.dateCompleted
+            })
+        });
+        const updatedTask = await response.json();
+        const index = tasks.findIndex(task => task._id === id);
+        tasks[index] = updatedTask;
+        renderTasks();
     }
 }
 
+
 // Function to delete a task
-function deleteTask(index) {
-    if (confirm(`Are you sure you want to delete "${tasks[index].task}"?`)) {
-        tasks.splice(index, 1);
-        renderTasks(orderTasks(tasks));
+async function deleteTask(id) {
+    if (confirm(`Are you sure you want to delete this task?`)) {
+        await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
+        tasks = tasks.filter(task => task._id !== id);
+        renderTasks();
     }
 }
 
 // Function to toggle task done state
-function toggleTaskDone(index) {
-    tasks[index].done = !tasks[index].done;
-    tasks[index].dateCompleted = tasks[index].done ? new Date().toISOString().split('T')[0] : null; // Set dateCompleted when task is done
-    renderTasks(orderTasks(tasks));
+async function toggleTaskDone(id) {
+    const task = tasks.find(task => task._id === id);
+    const updatedTask = { ...task, done: !task.done, dateCompleted: task.done ? null : new Date().toISOString().split('T')[0] };
+
+    const response = await fetch(`/api/tasks/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedTask)
+    });
+    const result = await response.json();
+    const index = tasks.findIndex(task => task._id === id);
+    tasks[index] = result;
+    renderTasks();
 }
 
 // Function to order tasks
@@ -170,5 +206,7 @@ filterCategory.addEventListener('change', filterTasks);
 filterDate.addEventListener('input', filterTasks);
 orderTasksSelect.addEventListener('change', () => renderTasks(orderTasks(tasks)));
 
-// Initial rendering of tasks
-renderTasks(orderTasks(tasks));
+// Initial fetching and rendering of tasks
+document.addEventListener('DOMContentLoaded', () => {
+    fetchTasks();
+});
