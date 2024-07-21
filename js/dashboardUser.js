@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fetch user tasks
     async function fetchTasks() {
         try {
-            const response = await fetch('http://localhost:5000/api/usertasks'/*, {
+            const response = await fetch('http://localhost:5000/api/usertasks', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
-            }*/);
+            });
             if (!response.ok) throw new Error('Failed to fetch tasks');
             const tasks = await response.json();
             if (!Array.isArray(tasks)) throw new Error('Tasks is not an array');
@@ -74,11 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const category = document.getElementById('category').value;
 
         try {
-            const response = await fetch('http://localhost:5000/api/tasksUser', {
+            const response = await fetch('http://localhost:5000/api/usertasks', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
-                    //'Authorization': `Bearer ${token}`
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({ task: taskInput, priority, date, category })
             });
