@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (response.ok) {
                     console.log('Logged in successfully:', data);
                     // Redirect to dashboard or another page
-                    // window.location.href = '/dashboard.html'; // Adjust as necessary
+                     window.location.href = '/app.html'; // Adjust as necessary
                 } else {
                     console.error('Login failed:', data);
                 }

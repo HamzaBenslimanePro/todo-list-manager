@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (response.ok) {
                     console.log('Logged in successfully:', data);
+                    localStorage.setItem('token', data.token);
+                    console.log(data.username);
+                    localStorage.setItem('UsernameTemp', data.username);
                     // Redirect to dashboard or another page
-                    // window.location.href = '/dashboard.html'; // Adjust as necessary
+                    window.location.href = 'dashboardUser.html'; // Adjust as necessary (u need to create a special app interface for a specific user)
                 } else {
                     console.error('Login failed:', data);
                 }
@@ -42,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         signupForm.addEventListener('submit', async function (event) {
             event.preventDefault();
             console.log('Signup form submitted');
+            const signupUsername = document.getElementById('signupUsername').value;
             const signupEmail = document.getElementById('signupEmail').value;
             const signupPassword = document.getElementById('signupPassword').value;
 
@@ -51,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email: signupEmail, password: signupPassword }),
+                    body: JSON.stringify({ username: signupUsername, email: signupEmail, password: signupPassword }),
                 });
                 const data = await response.json();
 
                 if (response.ok) {
                     console.log('Signed up successfully:', data);
-                    // Redirect to login or another page
-                    // window.location.href = '/login.html'; // Adjust as necessary
+                    // Redirect to dashboard or another page
+                    //window.location.href = '/dashboardUser.html';
                 } else {
                     console.error('Signup failed:', data);
                 }

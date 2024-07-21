@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const userTaskRoutes = require('./routes/userTaskRoutes');
 const path = require('path'); // Add this for serving static files
 dotenv.config();
 const app = express();
@@ -17,13 +18,14 @@ app.use(express.json()); // For parsing application/json
 // Routes
 app.use('/api', authRoutes);
 app.use('/api', taskRoutes);
+app.use('/api', userTaskRoutes);
 
 // Serve static files from the frontend
 app.use(express.static(path.join(__dirname, '../'))); // Adjust path as needed
 
 // Catch-all route to serve index.html for any other routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html')); // Adjust path as needed
+    res.sendFile(path.join(__dirname, '../redirect.html')); // Adjust path as needed
 });
 
 const PORT = process.env.PORT || 5000;

@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
-    const { email, password } = req.body;
+    const { username, email, password } = req.body;
 
     try {
         // Check if user already exists
@@ -15,7 +15,7 @@ exports.signup = async (req, res) => {
         }
 
         // Create a new user
-        user = new User({ email, password });
+        user = new User({ username, email, password });
         await user.save();
 
         // Create and sign a JWT token
