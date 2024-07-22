@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/styleapp.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="dashboardUser.html">
+            <img id="logo" src="./img/taskmaster_logo_black.png">
+        </a>
+        <h1 id="name">TaskMaster Dashboard</h1>
+    </header>
+
+    <main>
+        <section id="heroSection">
+            <!-- Hero section content goes here -->
+        </section>
+        <section id="stats">
+            <!-- Statistics will be inserted here -->
+        </section>
+        <div id="chartsContainer">
+            <div class="chart-container">
+                <canvas id="taskStatusChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="taskFrequencyChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="successBarChart"></canvas>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/custumData.js"></script>
+</body>
+</html>
