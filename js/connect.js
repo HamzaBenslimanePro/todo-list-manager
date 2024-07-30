@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (response.ok) {
                     console.log('Signed up successfully:', data);
                     // Redirect to dashboard or another page
-                    window.location.href = '/dashboardUser.html';
+                    window.location.href = 'connect.html';
                 } else {
                     console.error('Signup failed:', data);
                 }
