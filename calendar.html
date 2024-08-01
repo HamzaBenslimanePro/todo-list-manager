@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Calendar</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <header>
+        <h1>Task Calendar</h1>
+    </header>
+    <main>
+        <div id="calendar"></div>
+    </main>
+
+    <!-- Modal for adding a task -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Task</h2>
+            <form id="taskForm">
+                <label for="taskTitle">Task Title:</label>
+                <input type="text" id="taskTitle" required>
+                <label for="taskDate">Task Date:</label>
+                <input type="date" id="taskDate" required>
+                <label for="taskTime">Task Time:</label>
+                <input type="time" id="taskTime">
+                <label for="taskCategory">Category:</label>
+                <input type="text" id="taskCategory">
+                <label for="taskDescription">Description:</label>
+                <textarea id="taskDescription"></textarea>
+                <label for="taskPriority">Priority:</label>
+                <select id="taskPriority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+    <script src="js/calendar.js"></script>
+</body>
+</html>
