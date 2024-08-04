@@ -1,0 +1,316 @@
+Title: Introduction to Metrology, Measurement Systems
+Start Date: 2024-08-10
+End Date: 2024-08-10
+Task Time: 10:00
+Description: Read Chapter 1-2 from "Measurement and Instrumentation: Theory and Application" and review the [National Instruments - Measurement Fundamentals](https://www.ni.com/en-us/innovations/measurement/measurement-fundamentals.html).
+Priority: High
+Category: Work
+
+Title: Introduction to Biomedical Signals
+Start Date: 2024-08-10
+End Date: 2024-08-10
+Task Time: 18:00 
+Description: Read Chapter 1-2 from "Biomedical Signal Processing and Signal Modeling" and watch MIT OCW Lecture 1 on [Biomedical Signal and Image Processing](https://ocw.mit.edu/courses/health-sciences-and-technology/hst-582j-biomedical-signal-and-image-processing-spring-2007/lecture-notes/).
+Priority: High
+Category: Work
+
+Title: Sensors and Transducers
+Start Date: 2024-08-11
+End Date: 2024-08-11
+Task Time: 10:00
+Description: Read Chapter 3-4 from "Measurement and Instrumentation: Theory and Application" and watch a [video on Sensors and Transducers](https://www.youtube.com/watch?v=E92xcS_rq8c).
+Priority: High
+Category: Work
+
+Title: Signal Acquisition
+Start Date: 2024-08-11
+End Date: 2024-08-11
+Task Time: 18:00 
+Description: Read Chapter 3-4 from "Biomedical Signal Processing and Signal Modeling" and review MIT OCW Lecture 2.
+Priority: High
+Category: Work
+
+Title: Signal Conditioning
+Start Date: 2024-08-12
+End Date: 2024-08-12
+Task Time: 10:00
+Description: Read Chapter 5-6 from "Measurement and Instrumentation: Theory and Application" and review [National Instruments - Signal Conditioning](https://www.ni.com/en-us/innovations/measurement/signal-conditioning.html).
+Priority: High
+Category: Work
+
+Title: Filtering and Noise Reduction
+Start Date: 2024-08-12
+End Date: 2024-08-12
+Task Time: 18:00 
+Description: Read Chapter 5-6 from "Biomedical Signal Processing and Signal Modeling" and review MIT OCW Lecture 3.
+Priority: High
+Category: Work
+
+Title: Data Acquisition Systems
+Start Date: 2024-08-13
+End Date: 2024-08-13
+Task Time: 10:00
+Description: Read Chapter 7-8 from "Measurement and Instrumentation: Theory and Application" and review [National Instruments - Data Acquisition Systems](https://www.ni.com/en-us/shop/data-acquisition.html).
+Priority: High
+Category: Work
+
+Title: Signal Processing Techniques
+Start Date: 2024-08-13
+End Date: 2024-08-13
+Task Time: 18:00 
+Description: Read Chapter 7-8 from "Biomedical Signal Processing and Signal Modeling" and review MIT OCW Lecture 4.
+Priority: High
+Category: Work
+
+Title: Project Work: Métrologie, Capteurs et Instrumentation
+Start Date: 2024-08-26
+End Date: 2024-08-26
+Task Time: 18:00
+Description: Design a simple sensor-based measurement system project.
+Priority: High
+Category: Work
+
+Title: Review and Practice: Acquisition et traitement numérique des signaux biomédicaux
+Start Date: 2024-08-27
+End Date: 2024-08-27
+Task Time: 10:00
+Description: Review notes and key concepts, practice problems, and exercises.
+Priority: High
+Category: Work
+
+Title: Project Work: Acquisition et traitement numérique des signaux biomédicaux
+Start Date: 2024-08-27
+End Date: 2024-08-27
+Task Time: 18:00
+Description: Analyze and process a biomedical signal dataset.
+Priority: High
+Category: Work
+
+Title: Review and Practice: Bases de données
+Start Date: 2024-08-28
+End Date: 2024-08-28
+Task Time: 10:00
+Description: Review notes and key concepts, practice SQL queries, and database design.
+Priority: High
+Category: Work
+
+Title: Project Work: Bases de données
+Start Date: 2024-08-28
+End Date: 2024-08-28
+Task Time: 18:00
+Description: Design and implement a small database system.
+Priority: High
+Category: Work
+
+Title: Review and Practice: Médecine nucléaire et oncologie, Electrotechnique, and Système de Management des risques, Risques radioactifs et radioprotection
+Start Date: 2024-08-29
+End Date: 2024-08-29
+Task Time: 10:00
+Description: Review notes and key concepts, practice problems, and review case studies.
+Priority: High
+Category: Work
+
+Title: Project Work: Médecine nucléaire et oncologie, Electrotechnique, and Système de Management des risques, Risques radioactifs et radioprotection
+Start Date: 2024-08-29
+End Date: 2024-08-29
+Task Time: 18:00
+Description: Develop a safety protocol for a hypothetical nuclear medicine department.
+Priority: High
+Category: Work
+
+Title: Introduction to Databases, SQL Basics
+Start Date: 2024-08-14
+End Date: 2024-08-14
+Task Time: 10:00
+Description: Read Chapter 1-2 from "Database System Concepts" and review [Khan Academy - SQL Basics](https://www.khanacademy.org/computing/computer-programming/sql).
+Priority: High
+Category: Work
+
+Title: Introduction to Nuclear Medicine
+Start Date: 2024-08-14
+End Date: 2024-08-14
+Task Time: 18:00
+Description: Read Chapter 1-2 from "Nuclear Medicine: A Core Review" and review [Radiopaedia - Basics of Nuclear Medicine](https://radiopaedia.org/articles/nuclear-medicine).
+Priority: High
+Category: Work
+
+Title: Database Design and ER Models
+Start Date: 2024-08-15
+End Date: 2024-08-15
+Task Time: 10:00
+Description: Read Chapter 3-4 from "Database System Concepts" and review [Khan Academy - SQL Design](https://www.khanacademy.org/computing/computer-programming/sql).
+Priority: High
+Category: Work
+
+Title: Radioisotopes and Radiopharmaceuticals
+Start Date: 2024-08-15
+End Date: 2024-08-15
+Task Time: 18:00
+Description: Read Chapter 3-4 from "Nuclear Medicine: A Core Review" and review [Radiopaedia - Radioisotopes](https://radiopaedia.org/articles/radioisotopes).
+Priority: High
+Category: Work
+
+Title: SQL Queries and Transactions
+Start Date: 2024-08-16
+End Date: 2024-08-16
+Task Time: 10:00
+Description: Read Chapter 5-6 from "Database System Concepts" and review [Khan Academy - SQL Queries](https://www.khanacademy.org/computing/computer-programming/sql).
+Priority: High
+Category: Work
+
+Title: Imaging Techniques in Nuclear Medicine
+Start Date: 2024-08-16
+End Date: 2024-08-16
+Task Time: 18:00
+Description: Read Chapter 5-6 from "Nuclear Medicine: A Core Review" and review [Radiopaedia - Imaging Techniques](https://radiopaedia.org/articles/nuclear-medicine).
+Priority: High
+Category: Work
+
+Title: Advanced SQL and Indexing
+Start Date: 2024-08-17
+End Date: 2024-08-17
+Task Time: 10:00
+Description: Read Chapter 7-8 from "Database System Concepts" and review [Khan Academy - Advanced SQL](https://www.khanacademy.org/computing/computer-programming/sql).
+Priority: High
+Category: Work
+
+Title: Oncological Applications
+Start Date: 2024-08-17
+End Date: 2024-08-17
+Task Time: 18:00
+Description: Read Chapter 7-8 from "Nuclear Medicine: A Core Review" and review [Radiopaedia - Oncology](https://radiopaedia.org/articles/oncology).
+Priority: High
+Category: Work
+
+Title: Introduction to Electrotechnique
+Start Date: 2024-08-18
+End Date: 2024-08-18
+Task Time: 10:00
+Description: Read Chapter 1-2 from "Electric Machinery and Power System Fundamentals" and review [Coursera - Introduction to Power Electronics](https://www.coursera.org/learn/power-electronics).
+Priority: High
+Category: Work
+
+Title: Basics of Risk Management
+Start Date: 2024-08-18
+End Date: 2024-08-18
+Task Time: 18:00
+Description: Read Chapter 1-2 from "Radiation Protection in Medical Physics" and review [IAEA - Radiation Protection](https://www.iaea.org/resources/rpop).
+Priority: High
+Category: Work
+
+Title: Electrical Circuits and Components
+Start Date: 2024-08-19
+End Date: 2024-08-19
+Task Time: 10:00
+Description: Read Chapter 3-4 from "Electric Machinery and Power System Fundamentals" and review [Coursera - Electrical Circuits](https://www.coursera.org/learn/electrical-circuits).
+Priority: High
+Category: Work
+
+Title: Radioactive Risks and Safety Measures
+Start Date: 2024-08-19
+End Date: 2024-08-19
+Task Time: 18:00
+Description: Read Chapter 3-4 from "Radiation Protection in Medical Physics" and review [IAEA - Radioactive Safety](https://www.iaea.org/resources/rpop).
+Priority: High
+Category: Work
+
+Title: Power Systems
+Start Date: 2024-08-20
+End Date: 2024-08-20
+Task Time: 10:00
+Description: Read Chapter 5-6 from "Electric Machinery and Power System Fundamentals" and review [Coursera - Power Systems](https://www.coursera.org/learn/power-systems).
+Priority: High
+Category: Work
+
+Title: Radiation Protection Techniques
+Start Date: 2024-08-20
+End Date: 2024-08-20
+Task Time: 18:00
+Description: Read Chapter 5-6 from "Radiation Protection in Medical Physics" and review [IAEA - Radiation Techniques](https://www.iaea.org/resources/rpop).
+Priority: High
+Category: Work
+
+Title: Renewable Energy Sources
+Start Date: 2024-08-21
+End Date: 2024-08-21
+Task Time: 10:00
+Description: Read Chapter 7-8 from "Electric Machinery and Power System Fundamentals" and review [Coursera - Renewable Energy](https://www.coursera.org/learn/renewable-energy).
+Priority: Medium
+
+Title: Case Studies in Radiation Protection
+Start Date: 2024-08-21
+End Date: 2024-08-21
+Task Time: 18:00
+Description: Read Chapter 7-8 from "Radiation Protection in Medical Physics" and review [IAEA - Case Studies](https://www.iaea.org/resources/rpop).
+Priority: Medium
+
+Title: Introduction to Medical Equipment Maintenance
+Start Date: 2024-08-22
+End Date: 2024-08-22
+Task Time: 10:00
+Description: Read Chapter 1-2 from "Medical Equipment Maintenance: Management Manual" and review [WHO - Medical Devices](https://www.who.int/medical_devices/management_maintenance/en/).
+Priority: High
+Category: Work
+
+Title: Advanced Sensor Technologies
+Start Date: 2024-08-22
+End Date: 2024-08-22
+Task Time: 18:00
+Description: Read Chapter 9-10 from "Measurement and Instrumentation: Theory and Application" and watch a [video on Advanced Sensors](https://www.youtube.com/watch?v=E92xcS_rq8c).
+Priority: High
+Category: Work
+
+Title: Maintenance Strategies
+Start Date: 2024-08-23
+End Date: 2024-08-23
+Task Time: 10:00
+Description: Read Chapter 3-4 from "Medical Equipment Maintenance: Management Manual" and review [WHO - Maintenance Strategies](https://www.who.int/medical_devices/management_maintenance/en/).
+Priority: High
+Category: Work
+
+Title: Instrumentation Systems Design
+Start Date: 2024-08-23
+End Date: 2024-08-23
+Task Time: 18:00
+Description: Read Chapter 11-12 from "Measurement and Instrumentation: Theory and Application" and review [National Instruments - Instrumentation Design](https://www.ni.com/en-us/innovations/measurement/instrumentation.html).
+Priority: High
+Category: Work
+
+Title: Quality Assurance in Maintenance
+Start Date: 2024-08-24
+End Date: 2024-08-24
+Task Time: 10:00
+Description: Read Chapter 5-6 from "Medical Equipment Maintenance: Management Manual" and review [WHO - Quality Assurance](https://www.who.int/medical_devices/management_maintenance/en/).
+Priority: High
+Category: Work
+
+Title: Calibration Techniques
+Start Date: 2024-08-24
+End Date: 2024-08-24
+Task Time: 18:00
+Description: Read Chapter 13-14 from "Measurement and Instrumentation: Theory and Application" and watch a [video on Calibration](https://www.youtube.com/watch?v=E92xcS_rq8c).
+Priority: High
+Category: Work
+
+Title: Safety Standards and Regulations
+Start Date: 2024-08-25
+End Date: 2024-08-25
+Task Time: 10:00
+Description: Read Chapter 7-8 from "Medical Equipment Maintenance: Management Manual" and review [WHO - Safety Standards](https://www.who.int/medical_devices/management_maintenance/en/).
+Priority: High
+Category: Work
+
+Title: Emerging Trends in Metrology
+Start Date: 2024-08-25
+End Date: 2024-08-25
+Task Time: 18:00
+Description: Read Chapter 15-16 from "Measurement and Instrumentation: Theory and Application" and review [National Instruments - Metrology Trends](https://www.ni.com/en-us/innovations/measurement/metrology.html).
+Priority: Medium
+
+Title: Review and Practice: Métrologie, Capteurs et Instrumentation
+Start Date: 2024-08-26
+End Date: 2024-08-26
+Task Time: 10:00
+Description: Review notes and key concepts, practice problems, and exercises.
+Priority: High
+Category: Work

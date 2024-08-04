@@ -1,0 +1,40 @@
+Title: Introduction to Metrology, Measurement Systems
+Start Date: 2024-07-19
+End Date: 2024-08-19
+Task Time: 10:00
+Description: Read Chapter 1-2 from "Measurement and Instrumentation: Theory and Application" and review the National Instruments - Measurement Fundamentals.
+Priority: High
+Category: Work
+
+Title: Team Meeting
+Start Date: 2024-07-20
+End Date: 2024-07-20
+Task Time: 14:00
+Description: Attend the weekly team meeting to discuss project progress and next steps.
+Priority: Medium
+Category: Work
+
+Title: Gym Workout
+Start Date: 2024-08-21
+End Date: 2024-07-21
+Task Time: 18:00
+Description: Complete a full-body workout including cardio and strength training.
+Priority: Low
+Category: Sport
+
+Title: Art Exhibition Visit
+Start Date: 2024-07-22
+End Date: 2024-07-22
+Task Time: 15:00
+Description: Visit the contemporary art exhibition at the city gallery.
+Priority: Medium
+Category: Art
+
+Title: Weekend Getaway Planning
+Start Date: 2024-07-23
+End Date: 2024-09-23
+Task Time: 11:00
+Description: Plan the weekend trip including booking accommodations and creating an itinerary.
+Priority: High
+Category: Work
+Category: Personal
