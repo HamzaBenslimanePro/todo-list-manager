@@ -23,9 +23,10 @@ The To-Do List Manager is a web application designed to streamline task manageme
    ```bash
    cd todo-list-manager
 ## Usage
-1. Open your browser and navigate to http://localhost:3000.
-2. Register or log in to your account.
+1. Open your browser and navigate to http://localhost:5000 after starting npm.
+2. Register or log in to your account or just use the demo.
 3. Use the task management features to add, edit, delete, prioritize, schedule, categorize, and filter tasks.
+4. Use the calender features (new).
 ## Contributing
 Contributions are welcome! Please follow these steps:
 1. Fork the repository.
