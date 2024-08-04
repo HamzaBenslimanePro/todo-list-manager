@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
     const taskModal = document.getElementById('taskModal');
+    const confirmModal = document.getElementById('confirmModal');
     const taskForm = document.getElementById('taskForm');
-    const closeBtn = document.querySelector('.close');
+    const closeBtns = document.querySelectorAll('.close');
     const deleteTaskBtn = document.getElementById('deleteTaskBtn');
+    const confirmCreateTasksBtn = document.getElementById('confirmCreateTasksBtn');
     const filterPriority = document.getElementById('filterPriority');
     const filterCategory = document.getElementById('filterCategory');
+    const importTasksBtn = document.getElementById('importTasksBtn');
+    const taskFileInput = document.getElementById('taskFileInput');
 
     let currentEventId = null;
+    let tasksToCreate = [];
 
     // Retrieve tasks from localStorage
     const savedTasks = JSON.parse(localStorage.getItem('tasksCalendar')) || [];
@@ -19,40 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
         selectable: true,
         dateClick: function(info) {
             currentEventId = null;
-            taskModal.style.display = 'block';
-            document.getElementById('modalTitle').innerText = 'Add Task';
-            document.getElementById('startDate').value = info.dateStr;
-            document.getElementById('endDate').value = '';
-            document.getElementById('taskTitle').value = '';
-            document.getElementById('taskTime').value = '';
-            document.getElementById('taskCategory').value = 'work';
-            document.getElementById('taskDescription').value = '';
-            document.getElementById('taskPriority').value = 'low';
-            deleteTaskBtn.style.display = 'none';
+            openTaskModal(info.dateStr);
         },
         events: savedTasks, // Load saved tasks
         eventClick: function(info) {
             currentEventId = info.event.id;
-            taskModal.style.display = 'block';
-            document.getElementById('modalTitle').innerText = 'Edit Task';
-            document.getElementById('startDate').value = info.event.startStr.split('T')[0];
-            document.getElementById('endDate').value = info.event.endStr ? info.event.endStr.split('T')[0] : '';
-            document.getElementById('taskTitle').value = info.event.title.split(' (')[0];
-            document.getElementById('taskTime').value = info.event.startStr.split('T')[1] ? info.event.startStr.split('T')[1] : '';
-            document.getElementById('taskCategory').value = info.event.extendedProps.category;
-            document.getElementById('taskDescription').value = info.event.extendedProps.description;
-            document.getElementById('taskPriority').value = info.event.extendedProps.priority;
-            deleteTaskBtn.style.display = 'block';
+            openTaskModal(info.event.startStr.split('T')[0], info.event);
         },
         eventDidMount: function(info) {
             $(info.el).tooltip({
-                title: `<strong>Task:</strong> ${info.event.title}<br>
-                        <strong>Description:</strong> ${info.event.extendedProps.description}<br>
-                        <strong>Start Date:</strong> ${info.event.start.toLocaleDateString()}<br>
-                        ${info.event.allDay ? '' : `<strong>Time:</strong> ${info.event.start.toLocaleTimeString()}<br>`}
-                        ${info.event.end ? `<strong>End Date:</strong> ${info.event.end.toLocaleDateString()}<br>` : ''}
-                        <strong>Priority:</strong> ${info.event.extendedProps.priority}<br>
-                        <strong>Category:</strong> ${info.event.extendedProps.category}`,
+                title: getTooltipContent(info.event),
                 html: true,
                 placement: 'top',
                 trigger: 'hover',
@@ -63,17 +44,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
     calendar.render();
 
-    // Close modal when clicking on the 'x' button
-    closeBtn.onclick = function () {
-        taskModal.style.display = 'none';
+    // Open task modal for adding/editing tasks
+    function openTaskModal(dateStr, event = null) {
+        taskModal.style.display = 'block';
+        if (event) {
+            document.getElementById('modalTitle').innerText = 'Edit Task';
+            document.getElementById('startDate').value = event.startStr.split('T')[0];
+            document.getElementById('endDate').value = event.endStr ? event.endStr.split('T')[0] : '';
+            document.getElementById('taskTitle').value = event.title.split(' (')[0];
+            document.getElementById('taskTime').value = event.startStr.split('T')[1] ? event.startStr.split('T')[1] : '';
+            document.getElementById('taskCategory').value = event.extendedProps.category;
+            document.getElementById('taskDescription').value = event.extendedProps.description;
+            document.getElementById('taskPriority').value = event.extendedProps.priority;
+            deleteTaskBtn.style.display = 'block';
+        } else {
+            document.getElementById('modalTitle').innerText = 'Add Task';
+            document.getElementById('startDate').value = dateStr;
+            document.getElementById('endDate').value = '';
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskTime').value = '';
+            document.getElementById('taskCategory').value = 'work';
+            document.getElementById('taskDescription').value = '';
+            document.getElementById('taskPriority').value = 'low';
+            deleteTaskBtn.style.display = 'none';
+        }
     }
 
-    // Close modal when clicking outside of the modal
+    // Close modals when clicking on the 'x' button
+    closeBtns.forEach(btn => {
+        btn.onclick = function () {
+            taskModal.style.display = 'none';
+            confirmModal.style.display = 'none';
+        };
+    });
+
+    // Close modals when clicking outside of the modal
     window.onclick = function (event) {
         if (event.target == taskModal) {
             taskModal.style.display = 'none';
+        } else if (event.target == confirmModal) {
+            confirmModal.style.display = 'none';
         }
-    }
+    };
 
     // Handle task form submission
     taskForm.addEventListener('submit', function (event) {
@@ -173,5 +185,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
         calendar.removeAllEvents();
         calendar.addEventSource(filteredTasks);
+    }
+
+    // Handle task file import
+    importTasksBtn.addEventListener('click', function () {
+        taskFileInput.click();
+    });
+
+    taskFileInput.addEventListener('change', async function (event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('taskFile', file);
+
+        try {
+            const response = await fetch('/api/import-tasks', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) throw new Error('Failed to import tasks');
+
+            const result = await response.json();
+            tasksToCreate = result.tasks;
+            console.log(`Read ${tasksToCreate.length} tasks from the file.`);
+
+            const message = `Read ${tasksToCreate.length} tasks from the file. Do you want to create them?`;
+            document.getElementById('confirmModalMessage').innerText = message;
+            confirmModal.style.display = 'block';
+
+        } catch (error) {
+            console.error('Error importing tasks:', error);
+        }
+    });
+
+    // Handle task creation confirmation
+    confirmCreateTasksBtn.addEventListener('click', function () {
+        tasksToCreate.forEach(task => {
+            savedTasks.push(task);
+            calendar.addEvent(task);
+        });
+
+        localStorage.setItem('tasksCalendar', JSON.stringify(savedTasks));
+        confirmModal.style.display = 'none';
+    });
+
+    function getTooltipContent(event) {
+        return `<strong>Task:</strong> ${event.title}<br>
+                <strong>Description:</strong> ${event.extendedProps.description}<br>
+                <strong>Start Date:</strong> ${event.start.toLocaleDateString()}<br>
+                ${event.allDay ? '' : `<strong>Time:</strong> ${event.start.toLocaleTimeString()}<br>`}
+                ${event.end ? `<strong>End Date:</strong> ${event.end.toLocaleDateString()}<br>` : ''}
+                <strong>Priority:</strong> ${event.extendedProps.priority}<br>
+                <strong>Category:</strong> ${event.extendedProps.category}`;
     }
 });

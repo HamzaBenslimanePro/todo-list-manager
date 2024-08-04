@@ -11,6 +11,8 @@
 <body>
     <header>
         <h1>Task Calendar</h1>
+        <button id="importTasksBtn" class="btn btn-primary">Import Tasks</button>
+        <input type="file" id="taskFileInput" style="display: none;">
     </header>
     <main>
         <div id="calendar"></div>
@@ -70,6 +72,15 @@
             <option value="art">Art</option>
             <option value="others">Others</option>
         </select>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" style="display: none;">
+        <div>
+            <span class="close">&times;</span>
+            <p id="confirmModalMessage"></p>
+            <button id="confirmCreateTasksBtn">Create Tasks</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const userTaskRoutes = require('./routes/userTaskRoutes');
+const importTasks = require('./routes/importTasks');
 const path = require('path'); // Add this for serving static files
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.json()); // For parsing application/json
 app.use('/api', authRoutes);
 app.use('/api', taskRoutes);
 app.use('/api', userTaskRoutes);
+app.use('/api', importTasks);
 
 // Serve static files from the frontend
 app.use(express.static(path.join(__dirname, '../'))); // Adjust path as needed
