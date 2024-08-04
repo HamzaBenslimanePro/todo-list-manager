@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskModal = document.getElementById('taskModal');
     const taskForm = document.getElementById('taskForm');
     const closeBtn = document.querySelector('.close');
+    const deleteTaskBtn = document.getElementById('deleteTaskBtn');
     const filterPriority = document.getElementById('filterPriority');
     const filterCategory = document.getElementById('filterCategory');
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('taskCategory').value = 'work';
             document.getElementById('taskDescription').value = '';
             document.getElementById('taskPriority').value = 'low';
+            deleteTaskBtn.style.display = 'none';
         },
         events: savedTasks, // Load saved tasks
         eventClick: function(info) {
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('taskCategory').value = info.event.extendedProps.category;
             document.getElementById('taskDescription').value = info.event.extendedProps.description;
             document.getElementById('taskPriority').value = info.event.extendedProps.priority;
+            deleteTaskBtn.style.display = 'block';
         },
         eventDidMount: function(info) {
             $(info.el).tooltip({
@@ -118,6 +121,22 @@ document.addEventListener('DOMContentLoaded', function () {
         // Close modal and reset form
         taskModal.style.display = 'none';
         taskForm.reset();
+    });
+
+    // Handle task deletion
+    deleteTaskBtn.addEventListener('click', function () {
+        if (currentEventId) {
+            // Remove event from calendar and localStorage
+            const existingEvent = calendar.getEventById(currentEventId);
+            existingEvent.remove();
+            const index = savedTasks.findIndex(task => task.id === currentEventId);
+            savedTasks.splice(index, 1);
+            localStorage.setItem('tasksCalendar', JSON.stringify(savedTasks));
+
+            // Close modal and reset form
+            taskModal.style.display = 'none';
+            taskForm.reset();
+        }
     });
 
     // Function to get the color based on priority
