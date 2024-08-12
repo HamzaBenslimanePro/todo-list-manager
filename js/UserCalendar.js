@@ -10,9 +10,7 @@ const taskForm = document.getElementById('taskForm');
 const closeBtns = document.querySelectorAll('.close');
 const deleteTaskBtn = document.getElementById('deleteTaskBtn');
 const confirmCreateTasksBtn = document.getElementById('confirmCreateTasksBtn');
-const importTasksBtn
-
- = document.getElementById('importTasksBtn');
+const importTasksBtn = document.getElementById('importTasksBtn');
 const taskFileInput = document.getElementById('taskFileInput');
 
 let currentEventId = null;
@@ -95,6 +93,7 @@ function openTaskModal(dateStr, event = null) {
         document.getElementById('taskCategory').value = event.extendedProps.category;
         document.getElementById('taskDescription').value = event.extendedProps.description;
         document.getElementById('taskPriority').value = event.extendedProps.priority;
+        document.getElementById('taskDone').checked = event.extendedProps.done;
         deleteTaskBtn.style.display = 'block';
     } else {
         document.getElementById('modalTitle').innerText = 'Add Task';
@@ -105,6 +104,7 @@ function openTaskModal(dateStr, event = null) {
         document.getElementById('taskCategory').value = 'work';
         document.getElementById('taskDescription').value = '';
         document.getElementById('taskPriority').value = 'low';
+        document.getElementById('taskDone').checked = false;
         deleteTaskBtn.style.display = 'none';
     }
 }
@@ -136,8 +136,12 @@ taskForm.addEventListener('submit', async function (event) {
     const category = document.getElementById('taskCategory').value;
     const description = document.getElementById('taskDescription').value;
     const priority = document.getElementById('taskPriority').value;
+    const done = document.getElementById('taskDone').checked;
+    const dateCompleted = done ? new Date().toISOString().split('T')[0] : null;
 
-    const taskEvent = {
+    const taskEvent =
+
+ {
         id: currentEventId || String(Date.now()),
         title: `${title} (${priority})`,
         start: time ? `${startDate}T${time}` : startDate,
@@ -148,7 +152,9 @@ taskForm.addEventListener('submit', async function (event) {
         extendedProps: {
             description,
             priority,
-            category
+            category,
+            done,
+            dateCompleted
         }
     };
 
@@ -282,9 +288,7 @@ function getTooltipContent(event) {
             <strong>Description:</strong> ${event.extendedProps.description}<br>
             <strong>Start Date:</strong> ${event.start.toLocaleDateString()}<br>
             ${event.allDay ? '' : `<strong>Time:</strong> ${event.start.toLocaleTimeString()}<br>`}
-            ${event.end ? `<strong>End Date:</strong> ${
-
-event.end.toLocaleDateString()}<br>` : ''}
+            ${event.end ? `<strong>End Date:</strong> ${event.end.toLocaleDateString()}<br>` : ''}
             <strong>Priority:</strong> ${event.extendedProps.priority}<br>
             <strong>Category:</strong> ${event.extendedProps.category}`;
 }

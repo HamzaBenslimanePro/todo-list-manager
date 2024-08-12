@@ -17,7 +17,7 @@ router.get('/usercalendartasks', auth, async (req, res) => {
 
 // Add a new task for a user
 router.post('/usercalendartasks', auth, async (req, res) => {
-    const { title, start, end, time, category, description, priority } = req.body;
+    const { title, start, end, time, category, description, priority, done, dateCompleted } = req.body;
     const newTask = new UserCalendarTask({
         username: req.user.username,
         title,
@@ -27,9 +27,9 @@ router.post('/usercalendartasks', auth, async (req, res) => {
         category,
         description,
         priority,
-        done: false,
+        done,
         dateAdded: new Date().toISOString().split('T')[0],
-        dateCompleted: null
+        dateCompleted: done ? dateCompleted : null
     });
 
     try {
