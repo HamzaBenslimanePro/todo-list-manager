@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Calendar</title>
+    <link rel="stylesheet" href="path/to/fullcalendar/main.min.css">
+    <link rel="stylesheet" href="path/to/your/custom/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="path/to/fullcalendar/main.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="username">Welcome, User</h1>
+        <button id="importTasksBtn">Import Tasks</button>
+        <input type="file" id="taskFileInput" style="display: none;">
+    </header>
+    <div id="calendar"></div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" style="display: none;">
+        <div>
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add Task</h2>
+            <form id="taskForm">
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" required>
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate">
+                <label for="taskTitle">Task Title</label>
+                <input type="text" id="taskTitle" required>
+                <label for="taskTime">Task Time</label>
+                <input type="time" id="taskTime">
+                <label for="taskCategory">Category</label>
+                <select id="taskCategory">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="sport">Sport</option>
+                    <option value="art">Art</option>
+                    <option value="others">Others</option>
+                </select>
+                <label for="taskDescription">Description</label>
+                <textarea id="taskDescription"></textarea>
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit">Save Task</button>
+            </form>
+            <button id="deleteTaskBtn" style="display: none;">Delete Task</button>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div id="confirmModal" style="display: none;">
+        <div>
+            <span class="close">&times;</span>
+            <p id="confirmModalMessage"></p>
+            <button id="confirmCreateTasksBtn">Create Tasks</button>
+        </div>
+    </div>
+
+    <script src="path/to/your/userCalendar.js"></script>
+</body>
+</html>
