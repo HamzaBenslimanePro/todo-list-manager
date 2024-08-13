@@ -1,6 +1,7 @@
+let task = [];
 const token = localStorage.getItem('token');
 if (!token) {
-    window.location.href = 'login.html';
+    window.location.href = 'redirect.html';
 }
 
 const calendarEl = document.getElementById('calendar');
@@ -10,8 +11,11 @@ const taskForm = document.getElementById('taskForm');
 const closeBtns = document.querySelectorAll('.close');
 const deleteTaskBtn = document.getElementById('deleteTaskBtn');
 const confirmCreateTasksBtn = document.getElementById('confirmCreateTasksBtn');
+const filterPriority = document.getElementById('filterPriority');
+const filterCategory = document.getElementById('filterCategory');
 const importTasksBtn = document.getElementById('importTasksBtn');
 const taskFileInput = document.getElementById('taskFileInput');
+const logoutButton = document.getElementById('logoutButton');
 
 let currentEventId = null;
 let tasksToCreate = [];
@@ -19,17 +23,19 @@ let tasksToCreate = [];
 // Fetch user details
 async function fetchUser() {
     try {
-        const response = await fetch('http://localhost:5000/api/user', {
+        const response = await fetch('http://localhost:5000/api/TasksUser', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         });
         if (!response.ok) throw new Error('Failed to fetch user details');
         const user = await response.json();
-        document.getElementById('username').innerText = `Welcome, ${user.username}`;
+        document.getElementById('username').innerText = `Welcome, Sir ${user.username}`;
+        console.log('username :' ,user);
     } catch (error) {
         console.error('Error fetching user:', error);
-        window.location.href = 'login.html';
+        localStorage.removeItem('token');
+        window.location.href = 'redirect.html';
     }
 }
 
@@ -149,15 +155,13 @@ taskForm.addEventListener('submit', async function (event) {
         allDay: !time,
         backgroundColor: getPriorityColor(priority),
         borderColor: getPriorityColor(priority),
-        extendedProps: {
-            description,
-            priority,
-            category,
-            done,
-            dateCompleted
-        }
+        description,
+        priority,
+        category,
+        done,
+        dateCompleted
     };
-
+    console.log(taskEvent);
     try {
         if (currentEventId) {
             // Update existing event
@@ -172,6 +176,7 @@ taskForm.addEventListener('submit', async function (event) {
             if (!response.ok) throw new Error('Failed to update task');
         } else {
             // Add new event
+            //console.log(taskEvent);
             const response = await fetch('http://localhost:5000/api/usercalendartasks', {
                 method: 'POST',
                 headers: {
@@ -181,6 +186,7 @@ taskForm.addEventListener('submit', async function (event) {
                 body: JSON.stringify(taskEvent)
             });
             if (!response.ok) throw new Error('Failed to add task');
+            fetchTasks();
         }
 
         fetchTasks();
@@ -228,6 +234,28 @@ function getPriorityColor(priority) {
         default:
             return '#0000ff'; // Blue
     }
+}
+
+// Handle filtering
+filterPriority.addEventListener('change', function () {
+    filterEvents();
+});
+
+filterCategory.addEventListener('change', function () {
+    filterEvents();
+});
+
+function filterEvents() {
+    const priority = filterPriority.value;
+    const category = filterCategory.value;
+
+    const filteredTasks = tasks.filter(task => {
+        return (!priority || task.extendedProps.priority === priority) &&
+               (!category || task.extendedProps.category === category);
+    });
+
+    calendar.removeAllEvents();
+    calendar.addEventSource(filteredTasks);
 }
 
 // Handle task file import
@@ -292,6 +320,13 @@ function getTooltipContent(event) {
             <strong>Priority:</strong> ${event.extendedProps.priority}<br>
             <strong>Category:</strong> ${event.extendedProps.category}`;
 }
+
+// Logout
+logoutButton.addEventListener('click', function () {
+    localStorage.removeItem('token');
+    localStorage.removeItem('UsernameTemp');
+    window.location.href = 'connect.html';
+});
 
 // Initial fetches
 fetchUser();

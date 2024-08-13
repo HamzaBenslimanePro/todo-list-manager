@@ -28,6 +28,7 @@ async function fetchUser() {
         if (!response.ok) throw new Error('Failed to fetch user details');
         const user = await response.json();
         usernameHeader.innerText = `Welcome, ${user.username}`;
+        console.log('username :' ,user);
     } catch (error) {
         console.error('Error fetching user:', error);
         localStorage.removeItem('token');

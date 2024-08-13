@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
+        console.log(taskEvent);
         if (currentEventId) {
             // Update existing event
             const existingEvent = calendar.getEventById(currentEventId);
