@@ -236,6 +236,7 @@ End Date: 2024-08-21
 Task Time: 10:00
 Description: Read Chapter 7-8 from "Electric Machinery and Power System Fundamentals" and review [Coursera - Renewable Energy](https://www.coursera.org/learn/renewable-energy).
 Priority: Medium
+Category: Work
 
 Title: Case Studies in Radiation Protection
 Start Date: 2024-08-21
@@ -243,6 +244,7 @@ End Date: 2024-08-21
 Task Time: 18:00
 Description: Read Chapter 7-8 from "Radiation Protection in Medical Physics" and review [IAEA - Case Studies](https://www.iaea.org/resources/rpop).
 Priority: Medium
+Category: Work
 
 Title: Introduction to Medical Equipment Maintenance
 Start Date: 2024-08-22
@@ -306,6 +308,7 @@ End Date: 2024-08-25
 Task Time: 18:00
 Description: Read Chapter 15-16 from "Measurement and Instrumentation: Theory and Application" and review [National Instruments - Metrology Trends](https://www.ni.com/en-us/innovations/measurement/metrology.html).
 Priority: Medium
+Category: Work
 
 Title: Review and Practice: Métrologie, Capteurs et Instrumentation
 Start Date: 2024-08-26
