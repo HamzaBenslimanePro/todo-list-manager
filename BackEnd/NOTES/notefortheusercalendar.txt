@@ -1,0 +1,2 @@
+careful the import file feature doesn't work cuz of the same category and priority aren't read properly
+(done) ********* also the logout doesn't send to the connect of the calendar bit the connect of the app

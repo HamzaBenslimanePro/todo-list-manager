@@ -65,7 +65,8 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         openTaskModal(info.dateStr);
     },
     eventClick: function(info) {
-        currentEventId = info.event.id;
+        currentEventId = info.event._def.extendedProps._id;
+        //console.log(info.event._def.extendedProps._id)
         openTaskModal(info.event.startStr.split('T')[0], info.event);
     },
     eventDidMount: function(info) {
@@ -201,6 +202,7 @@ taskForm.addEventListener('submit', async function (event) {
 
 // Handle task deletion
 deleteTaskBtn.addEventListener('click', async function () {
+    console.log('testing ' ,currentEventId)
     if (currentEventId) {
         try {
             const response = await fetch(`http://localhost:5000/api/usercalendartasks/${currentEventId}`, {
@@ -325,7 +327,7 @@ function getTooltipContent(event) {
 logoutButton.addEventListener('click', function () {
     localStorage.removeItem('token');
     localStorage.removeItem('UsernameTemp');
-    window.location.href = 'connect.html';
+    window.location.href = 'connect_Calendar.html';
 });
 
 // Initial fetches

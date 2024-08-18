@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         events: savedTasks, // Load saved tasks
         eventClick: function(info) {
             currentEventId = info.event.id;
+            console.log(info.event)
             openTaskModal(info.event.startStr.split('T')[0], info.event);
         },
         eventDidMount: function(info) {
