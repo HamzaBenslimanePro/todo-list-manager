@@ -1,4 +1,4 @@
-let task = [];
+let taskss = [];
 const token = localStorage.getItem('token');
 if (!token) {
     window.location.href = 'redirect.html';
@@ -227,11 +227,11 @@ deleteTaskBtn.addEventListener('click', async function () {
 // Function to get the color based on priority
 function getPriorityColor(priority) {
     switch (priority) {
-        case 'high':
+        case 'High':
             return '#ff0000'; // Red
-        case 'medium':
+        case 'Medium':
             return '#ffa500'; // Orange
-        case 'low':
+        case 'Low':
             return '#008000'; // Green
         default:
             return '#0000ff'; // Blue
@@ -251,9 +251,9 @@ function filterEvents() {
     const priority = filterPriority.value;
     const category = filterCategory.value;
 
-    const filteredTasks = tasks.filter(task => {
-        return (!priority || task.extendedProps.priority === priority) &&
-               (!category || task.extendedProps.category === category);
+    const filteredTasks = taskss.filter(task => {
+        return (!priority || task.priority === priority) &&
+               (!category || task.category === category);
     });
 
     calendar.removeAllEvents();
@@ -295,7 +295,8 @@ taskFileInput.addEventListener('change', async function (event) {
 
 // Handle task creation confirmation
 confirmCreateTasksBtn.addEventListener('click', async function () {
-    console.log(`Creating ${tasksToCreate.length} tasks...`); // Debugging
+    console.log(`Creating ${tasksToCreate.length} tasks...`);
+    console.log(tasksToCreate); // Debugging
     try {
         const response = await fetch('/api/usercalendartasks/batch', {
             method: 'POST',

@@ -6,9 +6,9 @@ const userCalendarTaskSchema = new mongoose.Schema({
     start: { type: Date, required: true },
     end: { type: Date, required: false },
     time: { type: String, required: false },
-    category: { type: String, required: true, enum: ['work', 'personal', 'sport', 'art', 'others'] },
+    category: { type: String, required: true, enum: ['Work', 'Personal', 'Sport', 'Art', 'Others'] },
+    priority: { type: String, required: true, enum: ['Low', 'Medium', 'High'] },
     description: { type: String, required: false },
-    priority: { type: String, required: true, enum: ['low', 'medium', 'high'] },
     done: { type: Boolean, default: false },
     dateAdded: { type: Date, default: Date.now },
     dateCompleted: { type: Date, required: false }

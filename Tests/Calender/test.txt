@@ -11,7 +11,7 @@ Start Date: 2024-07-20
 End Date: 2024-07-20
 Task Time: 14:00
 Description: Attend the weekly team meeting to discuss project progress and next steps.
-Priority: Medium
+Priority: medium
 Category: Work
 
 Title: Gym Workout
@@ -19,16 +19,16 @@ Start Date: 2024-08-21
 End Date: 2024-07-21
 Task Time: 18:00
 Description: Complete a full-body workout including cardio and strength training.
-Priority: Low
-Category: Sport
+Priority: low
+Category: sport
 
 Title: Art Exhibition Visit
 Start Date: 2024-07-22
 End Date: 2024-07-22
 Task Time: 15:00
 Description: Visit the contemporary art exhibition at the city gallery.
-Priority: Medium
-Category: Art
+Priority: medium
+Category: art
 
 Title: Weekend Getaway Planning
 Start Date: 2024-07-23
@@ -37,4 +37,4 @@ Task Time: 11:00
 Description: Plan the weekend trip including booking accommodations and creating an itinerary.
 Priority: High
 Category: Work
-Category: Personal
+Category: personal

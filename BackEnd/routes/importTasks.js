@@ -52,21 +52,19 @@ function formatTask(task) {
         allDay: !task.task_time,
         backgroundColor: getPriorityColor(task.priority),
         borderColor: getPriorityColor(task.priority),
-        extendedProps: {
-            description: task.description,
-            priority: task.priority,
-            category: task.category
-        }
+        description: task.description,
+        priority: task.priority,
+        category: task.category
     };
 }
 
 function getPriorityColor(priority) {
-    switch (priority.toLowerCase()) {
-        case 'high':
+    switch (priority) {
+        case 'High':
             return '#ff0000'; // Red
-        case 'medium':
+        case 'Medium':
             return '#ffa500'; // Orange
-        case 'low':
+        case 'Low':
             return '#008000'; // Green
         default:
             return '#0000ff'; // Blue
